@@ -1,0 +1,460 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model NCAA_Data.PlayerStatistics
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+<head class="main">
+    <style>
+            body, html {
+                height: 100%;
+            }
+
+        body {
+            background-image: @*need background image *@
+            background-repeat: no-repeat;
+            @*background-color: lightblue;*@
+            background-size: cover;
+            height: 100%;
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+            .btn-primary {
+                background-color: white;
+                color: black;
+                border: none;
+                padding: 10px 10px;
+                border-radius: 5px;
+            }
+
+                .btn-primary:hover {
+                    border-width: 2px;
+                    color: black;
+                    background-color: ghostwhite;
+                }
+    </style>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4" style="color: black">NCAA Football Statistics</h1>
+    <p style="color: black">Choose a side of the ball to get started.</p>
+</div>
+
+@*DROP DOWN #1: PICK A SIDE OF THE BALL*@
+<form>
+    <div class="form-group">
+        <label class="Field" for="">Choose:</label>
+        <br />
+        <select class="form-control" name="state" id="sideOfTheBall">
+            <option value=""></option>
+            <option value="Offense">Offense</option>
+            <option value="Defense">Defense</option>
+            <option value="Special Teams">Special Teams</option>
+        </select>
+    </div>
+    @*---------------------------------------OFFENSE---------------------------------------------*@
+    @*DROP DOWN #2:OFFENSE OPTIONS*@
+    <div class="form-group" id="offenseOptions" style="display: none;">
+        <label class="Field" for="">Offensive Category:</label>
+        <br />
+        <select class="form-control" name="offenseOption" id="offenseOptionDropdown">
+            <option value=""></option>
+            <option value="Rushing">Rushing</option>
+            <option value="Receiving">Receiving</option>
+            <option value="Passing">Passing</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: RUSHING OPTIONS*@
+    <div class="form-group" id="rushingOptions" style="display: none;">
+        <label class="Field" for="">Rushing Stat:</label>
+        <br />
+        <select class="form-control" name="rushingOption" id="rushingOptionDropdown">
+            <option value=""></option>
+            <option value="Yards">Yards</option>
+            <option value="Touchdowns">Touchdowns</option>
+            <option value="Carries">Carries</option>
+            <option value="Yards Per Carry">Yards Per Carry</option>
+            <option value="Long">Long</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: RECEIVING OPTIONS*@
+    <div class="form-group" id="receivingOptions" style="display: none;">
+        <label class="Field" for="">Receiving Stat:</label>
+        <br />
+        <select class="form-control" name="receivingOption" id="receivingOptionDropdown">
+            <option value=""></option>
+            <option value="Yards">Yards</option>
+            <option value="Touchdowns">Touchdowns</option>
+            <option value="Receptions">Receptions</option>
+            <option value="Yards Per Reception">Yards Per Reception</option>
+            <option value="Long">Long</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: PASSING OPTIONS*@
+    <div class="form-group" id="passingOptions" style="display: none;">
+        <label class="Field" for="">Passing Stat:</label>
+        <br />
+        <select class="form-control" name="passingOption" id="passingOptionDropdown">
+            <option value=""></option>
+            <option value="Yards">Yards</option>
+            <option value="Touchdowns">Touchdowns</option>
+            <option value="Completions">Completions</option>
+            <option value="Attempts">Attempts</option>
+            <option value="Yards Per Attempt">Yards Per Attempt</option>
+            <option value="Interceptions">Interceptions</option>
+            <option value="Completion Percentage">Completion Percentage</option>
+        </select>
+    </div>
+    @*---------------------------------------DEFENSE---------------------------------------------*@
+    @*DROP DOWN #2: DEFENSE OPTIONS*@
+    <div class="form-group" id="defenseOptions" style="display: none;">
+        <label class="Field" for="">Defense Category:</label>
+        <br />
+        <select class="form-control" name="defenseOption" id="defenseOptionDropdown">
+            <option value=""></option>
+            <option value="All Defense">All Defense</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: DEFENSE OPTIONS*@
+    <div class="form-group" id="defenseStats" style="display: none;">
+        <label class="Field" for="">Defense Stat:</label>
+        <br />
+        <select class="form-control" name="defenseStats" id="defenseStatsDropdown">
+            <option value=""></option>
+            <option value="Sacks">Sacks</option>
+            <option value="Pass Deflections">Pass Deflections</option>
+            <option value="Tackle for Loss">Tackle for Loss</option>
+            <option value="Total Tackles">Total Tackles</option>
+            <option value="Solo Tackles">Solo Tackles</option>
+        </select>
+    </div>
+    @*---------------------------------------SPECIAL TEAMS---------------------------------------------*@
+    @*DROP DOWN #2: SPECIAL TEAMS OPTIONS*@
+    <div class="form-group" id="specialOptions" style="display: none;">
+        <label class="Field" for="">Special Teams Category:</label>
+        <br />
+        <select class="form-control" name="specialOption" id="specialOptionDropdown">
+            <option value=""></option>
+            <option value="Kicking">Kicking</option>
+            <option value="Punting">Punting</option>
+            <option value="Kick Returns">Kick Returns</option>
+            <option value="Punt Returns">Punt Returns</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: KICKING OPTIONS*@
+    <div class="form-group" id="kickingOptions" style="display: none;">
+        <label class="Field" for="">Kicking Stat:</label>
+        <br />
+        <select class="form-control" name="kickingOptions" id="kickingOptionsDropdown">
+            <option value=""></option>
+            <option value="Field Goals Made">Field Goal Made</option>
+            <option value="Field Goals Attempted">Field Goals Attempted</option>
+            <option value="Extra Points Made">Extra Points Made</option>
+            <option value="Extra Points Attempted">Extra Points Attempted</option>
+            <option value="Field Goal Percentage">Field Goal Percentage</option>
+            <option value="Total Points">Total Points</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: PUNTING OPTIONS*@
+    <div class="form-group" id="puntingOptions" style="display: none;">
+        <label class="Field" for="">Punting Stat:</label>
+        <br />
+        <select class="form-control" name="puntingOptions" id="puntingOptionsDropdown">
+            <option value=""></option>
+            <option value="Longest">Longest</option>
+            <option value="Inside the 20">Inside the 20</option>
+            <option value="Total Yards">Total Yards</option>
+            <option value="Yards Per Punt">Yards Per Punt</option>
+            <option value="No Return">No Return</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: KICK RETURN OPTIONS*@
+    <div class="form-group" id="kickReturnOptions" style="display: none;">
+        <label class="Field" for="">Kick Return Stat:</label>
+        <br />
+        <select class="form-control" name="kickReturnOptions" id="kickReturnOptionsDropdown">
+            <option value=""></option>
+            <option value="Longest">Longest</option>
+            <option value="Touchdowns">Touchdowns</option>
+            <option value="Total Yards">Total Yards</option>
+            <option value="No Return">No Return</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: PUNT RETURN OPTIONS*@
+    <div class="form-group" id="puntReturnOptions" style="display: none;">
+        <label class="Field" for="">Punt Return Stat:</label>
+        <br />
+        <select class="form-control" name="puntReturnOptions" id="puntReturnOptionsDropdown">
+            <option value=""></option>
+            <option value="Longest">Longest</option>
+            <option value="Touchdowns">Touchdowns</option>
+            <option value="Total Yards">Total Yards</option>
+            <option value="No Return">No Return</option>
+        </select>
+    </div>
+
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            //reference the div id's
+            var sideOfTheBall = document.getElementById("sideOfTheBall");
+            var offenseOptions = document.getElementById("offenseOptions");
+            var rushingOptions = document.getElementById("rushingOptions");
+            var receivingOptions = document.getElementById("receivingOptions");
+            var passingOptions = document.getElementById("passingOptions");
+            var defenseOptions = document.getElementById("defenseOptions");
+            var defenseStats = document.getElementById("defenseStats");
+            var specialOptions = document.getElementById("specialOptions");
+            var kickingOptions = document.getElementById("kickingOptions");
+            var puntingOptions = document.getElementById("puntingOptions");
+            var kickReturnOptions = document.getElementById("kickReturnOptions");
+            var puntReturnOptions = document.getElementById("puntReturnOptions");
+
+            //reference the class id's within the div
+            var offenseDropdown = offenseOptions.querySelector("select[name='offenseOption']");
+            var rushingDropdown = rushingOptions.querySelector("select[name='rushingOption']");
+            var receivingDropdown = receivingOptions.querySelector("select[name='receivingOption']");
+            var passingDropdown = passingOptions.querySelector("select[name='passingOption']");
+            var defenseDropdown = defenseOptions.querySelector("select[name='defenseOption']");
+            var defenseStatsDropdown = defenseStats.querySelector("select[name='defenseStats']");
+            var specialDropdown = specialOptions.querySelector("select[name='specialOption']");
+            var kickingOptionsDropdown = kickingOptions.querySelector("select[name='kickingOptions']");
+            var puntingOptionsDropdown = puntingOptions.querySelector("select[name='puntingOptions']");
+            var kickReturnOptionsDropdown = kickReturnOptions.querySelector("select[name='kickReturnOptions']");
+            var puntReturnOptionsDropdown = puntReturnOptions.querySelector("select[name='puntReturnOptions']");
+
+            // Disabling dropdowns
+            offenseDropdown.setAttribute("disabled", "disabled");
+            rushingDropdown.setAttribute("disabled", "disabled");
+            receivingDropdown.setAttribute("disabled", "disabled");
+            passingDropdown.setAttribute("disabled", "disabled");
+            defenseDropdown.setAttribute("disabled", "disabled");
+            defenseStatsDropdown.setAttribute("disabled", "disabled");
+            specialDropdown.setAttribute("disabled", "disabled");
+            kickingOptionsDropdown.setAttribute("disabled", "disabled");
+            puntingOptionsDropdown.setAttribute("disabled", "disabled");
+            kickReturnOptionsDropdown.setAttribute("disabled", "disabled");
+            puntReturnOptionsDropdown.setAttribute("disabled", "disabled");
+
+            //Hiding dropdown options
+            offenseOptions.style.display = "none";
+            rushingOptions.style.display = "none";
+            receivingOptions.style.display = "none";
+            passingOptions.style.display = "none";
+            defenseOptions.style.display = "none";
+            defenseStats.style.display = "none";
+            specialOptions.style.display = "none";
+            kickingOptions.style.display = "none";
+            puntingOptions.style.display = "none";
+            kickReturnOptions.style.display = "none";
+            puntReturnOptions.style.display = "none";
+
+            sideOfTheBall.addEventListener("change", function () {//triggers a function when the user changes the selected value
+                var selectedValue = sideOfTheBall.value; //retrieves the current selected value of the sideOfTheBall dropdown
+
+                if (selectedValue === "Offense") {
+                    offenseDropdown.removeAttribute("disabled");
+                    offenseOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    rushingDropdown.setAttribute("disabled", "disabled");
+                    rushingOptions.style.display = "none";
+                    receivingDropdown.setAttribute("disabled", "disabled");
+                    receivingOptions.style.display = "none";
+                    passingDropdown.setAttribute("disabled", "disabled");
+                    passingOptions.style.display = "none";
+                    defenseDropdown.setAttribute("disabled", "disabled");
+                    defenseOptions.style.display = "none";
+                    defenseStatsDropdown.setAttribute("disabled", "disabled");
+                    defenseStats.style.display = "none";
+                    specialDropdown.setAttribute("disabled", "disabled");
+                    specialOptions.style.display = "none";
+                    kickingOptionsDropdown.setAttribute("disabled", "disabled");
+                    kickingOptions.style.display = "none";
+                    puntingOptionsDropdown.setAttribute("disabled", "disabled");
+                    puntingOptions.style.display = "none";
+                    kickReturnOptionsDropdown.setAttribute("disabled", "disabled");
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptionsDropdown.setAttribute("disabled", "disabled");
+                    puntReturnOptions.style.display = "none";
+
+                } else if (selectedValue === "Defense") {
+                    defenseDropdown.removeAttribute("disabled");
+                    defenseOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    offenseDropdown.setAttribute("disabled", "disabled");
+                    offenseOptions.style.display = "none";
+                    rushingDropdown.setAttribute("disabled", "disabled");
+                    rushingOptions.style.display = "none";
+                    receivingDropdown.setAttribute("disabled", "disabled");
+                    receivingOptions.style.display = "none";
+                    passingDropdown.setAttribute("disabled", "disabled");
+                    passingOptions.style.display = "none";
+                    specialDropdown.setAttribute("disabled", "disabled");
+                    specialOptions.style.display = "none";
+                    kickingOptionsDropdown.setAttribute("disabled", "disabled");
+                    kickingOptions.style.display = "none";
+                    puntingOptionsDropdown.setAttribute("disabled", "disabled");
+                    puntingOptions.style.display = "none";
+                    kickReturnOptionsDropdown.setAttribute("disabled", "disabled");
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptionsDropdown.setAttribute("disabled", "disabled");
+                    puntReturnOptions.style.display = "none";
+
+                } else if (selectedValue === "Special Teams") {
+                    specialDropdown.removeAttribute("disabled");
+                    specialOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    offenseDropdown.setAttribute("disabled", "disabled");
+                    offenseOptions.style.display = "none";
+                    rushingDropdown.setAttribute("disabled", "disabled");
+                    rushingOptions.style.display = "none";
+                    receivingDropdown.setAttribute("disabled", "disabled");
+                    receivingOptions.style.display = "none";
+                    passingDropdown.setAttribute("disabled", "disabled");
+                    passingOptions.style.display = "none";
+                    defenseDropdown.setAttribute("disabled", "disabled");
+                    defenseOptions.style.display = "none";
+                    defenseStatsDropdown.setAttribute("disabled", "disabled");
+                    defenseStats.style.display = "none";
+
+                } else {
+                    // Hide all dropdowns if no option is selected
+                    offenseOptions.style.display = "none";
+                    rushingOptions.style.display = "none";
+                    receivingOptions.style.display = "none";
+                    passingOptions.style.display = "none";
+                    defenseOptions.style.display = "none";
+                    defenseStats.style.display = "none";
+                    specialOptions.style.display = "none";
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                }
+            });
+
+            // Event listener for offenseDropdown
+            offenseDropdown.addEventListener("change", function () {
+                var selectedValue = offenseDropdown.value;
+
+                if (selectedValue === "Rushing") {
+                    rushingDropdown.removeAttribute("disabled");
+                    rushingOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    receivingDropdown.setAttribute("disabled", "disabled");
+                    receivingOptions.style.display = "none";
+                    passingDropdown.setAttribute("disabled", "disabled");
+                    passingOptions.style.display = "none";
+
+                } else if (selectedValue === "Receiving") {
+                    receivingDropdown.removeAttribute("disabled");
+                    receivingOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    rushingOptions.style.display = "none";
+                    passingOptions.style.display = "none";
+
+                } else if (selectedValue === "Passing") {
+                    passingDropdown.removeAttribute("disabled");
+                    passingOptions.style.display = "block";
+
+                    // Hide other dropdowns
+                    rushingOptions.style.display = "none";
+                    receivingOptions.style.display = "none";
+                } else {
+                    // Hide all offense dropdowns if no option is selected
+                    rushingOptions.style.display = "none";
+                    receivingOptions.style.display = "none";
+                    passingOptions.style.display = "none";
+                }
+            });
+
+            defenseDropdown.addEventListener("change", function () {
+                var selectedValue = defenseDropdown.value;
+
+                if (selectedValue === "All Defense") {
+                    defenseStatsDropdown.removeAttribute("disabled");
+                    defenseStats.style.display = "block";
+
+                    // Hide other defense dropdowns
+                    passingOptions.style.display = "none";
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                } else {
+                    // Hide all defense dropdowns if no option is selected
+                    passingOptions.style.display = "none";
+                    defenseStats.style.display = "none";
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                }
+            });
+            specialDropdown.addEventListener("change", function () {
+                var selectedValue = specialDropdown.value;
+
+                if (selectedValue === "Kicking") {
+                    kickingOptionsDropdown.removeAttribute("disabled");
+                    kickingOptions.style.display = "block";
+
+                    // Hide other special teams dropdowns
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                } else if (selectedValue === "Punting") {
+                    puntingOptionsDropdown.removeAttribute("disabled");
+                    puntingOptions.style.display = "block";
+
+                    // Hide other special teams dropdowns
+                    kickingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                } else if (selectedValue === "Kick Returns") {
+                    kickReturnOptionsDropdown.removeAttribute("disabled");
+                    kickReturnOptions.style.display = "block";
+
+                    // Hide other special teams dropdowns
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                } else if (selectedValue === "Punt Returns") {
+                    puntReturnOptionsDropdown.removeAttribute("disabled");
+                    puntReturnOptions.style.display = "block";
+
+                    // Hide other special teams dropdowns
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                } else {
+                    // Hide all special teams dropdowns if no option is selected
+                    kickingOptions.style.display = "none";
+                    puntingOptions.style.display = "none";
+                    kickReturnOptions.style.display = "none";
+                    puntReturnOptions.style.display = "none";
+                }
+            });
+
+        });</script>
+
+    <br />
+    <input type="submit" value="Submit" class="btn-primary" />
+</form>
+
+
+
+

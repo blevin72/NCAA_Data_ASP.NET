@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\Offense\" />
+    <None Remove="Models\Defense\" />
+    <None Remove="Models\Special Teams\" />
+    <None Remove="Views\Stats\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Offense\" />
+    <Folder Include="Models\Defense\" />
+    <Folder Include="Models\Special Teams\" />
+    <Folder Include="Views\Stats\" />
+  </ItemGroup>
+</Project>
