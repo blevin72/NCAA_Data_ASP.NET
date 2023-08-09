@@ -1,8 +1,13 @@
-﻿@{
+﻿@using NCAA_Data
+
+@model List<PlayerStatistics>
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-@model NCAA_Data.PlayerStatistics
+@* @@model NCAA_Data.PlayerStatistics *@
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
@@ -532,3 +537,10 @@
     <br />
     <input type="submit" value="Submit" class="btn-primary" />
 </form>
+
+@foreach (var item in Model)
+    {
+       <h1> Conference: @item.Conference </h1>
+       <h1> Year: @item.Year</h1>
+    }
+

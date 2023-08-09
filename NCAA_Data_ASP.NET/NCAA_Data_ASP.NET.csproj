@@ -16,11 +16,13 @@
     <None Remove="Models\Defense\" />
     <None Remove="Models\Special Teams\" />
     <None Remove="Views\Stats\" />
+    <None Remove="Views\Player\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Offense\" />
     <Folder Include="Models\Defense\" />
     <Folder Include="Models\Special Teams\" />
     <Folder Include="Views\Stats\" />
+    <Folder Include="Views\Player\" />
   </ItemGroup>
 </Project>

@@ -33,7 +33,6 @@ public class HomeController : Controller
     {
         string apiKey = _configuration["APIKey"];
 
-        // Use the API key as needed in your controller action
         ViewBag.ApiKey = apiKey;
 
         return View();

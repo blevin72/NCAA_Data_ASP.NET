@@ -1,13 +1,13 @@
 ﻿using System;
 namespace NCAA_Data
 {
-    public abstract class Base
+    public class Base
     {
-        protected string StatCat { get; set; }
-        protected int Year { get; set; }
-        protected string Conference { get; set; }
-        protected string Season { get; set; }
-        protected string StatType { get; set; }
+        public string StatCat { get; set; }
+        public int Year { get; set; }
+        public string Conference { get; set; }
+        public string Season { get; set; }
+        public string StatType { get; set; }
 
         public virtual void GetParameters()
         {
@@ -22,6 +22,6 @@ namespace NCAA_Data
             Console.WriteLine("Which season would you like to see: regular, postseason, or both?");
             Season = Console.ReadLine();
         }
-        public abstract Task DisplayStatistics();
+        //public abstract Task DisplayStatistics();
     }
 }

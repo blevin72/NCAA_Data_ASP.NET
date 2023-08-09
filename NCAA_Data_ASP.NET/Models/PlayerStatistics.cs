@@ -9,6 +9,5 @@
         public string Category { get; set; }
         public string StatType { get; set; }
         public string Stat { get; set; }
-        //public string RushingYards { get; set; }
     }
 }

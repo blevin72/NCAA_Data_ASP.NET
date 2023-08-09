@@ -5,12 +5,14 @@ namespace NCAA_Data
 {
     public class PlayerStats
     {
-        public static async Task<List<PlayerStatistics>> GetPlayerStats(string endPoint)
+        public static async Task<List<PlayerStatistics>> GetPlayerStats(int year, string conference, string season, string statCat)
         {
             string key = File.ReadAllText("appsettings.json");  //reads the content (our API Key) from the "appsettings.json file; storing into the variable key
             string bearerToken = JObject.Parse(key).GetValue("APIKey").ToString();
             double rushingYards = 0;
 
+            string footballEndpoint = $"https://api.collegefootballdata.com/stats/player/" +    //making the API call
+            $"season?year={year}&conference={conference}&seasonType={season}&category={statCat}";
             //Create a list to store player tatistics
             List<PlayerStatistics> playerStatsList = new List<PlayerStatistics>();
 
@@ -23,7 +25,7 @@ namespace NCAA_Data
                     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
 
                     // Make the API call (GET request in this example)
-                    HttpResponseMessage response = await httpClient.GetAsync(endPoint);
+                    HttpResponseMessage response = await httpClient.GetAsync(footballEndpoint);
 
                     // Check if the response is successful
                     if (response.IsSuccessStatusCode)
