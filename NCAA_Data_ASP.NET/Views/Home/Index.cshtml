@@ -40,15 +40,53 @@
 
 <div class="text-center">
     <h1 class="display-4" style="color: black">NCAA Football Statistics</h1>
-    <p style="color: black">Choose a side of the ball to get started.</p>
+    <p style="color: black">Search for NCAA college football stats from any season dating back to 2005 (exc. 2020)</p>
 </div>
 
-@*DROP DOWN #1: PICK A SIDE OF THE BALL*@
 <form>
+    @*@USER INPUT: ENTER YEAR*@
+    <div class="form-group">
+        <label class="Field" for="">Year:</label>
+        <br />
+        <input class="form-control" type="text" name="year" id="year" placeholder="Enter year">
+    </div>
+
+    @*DROP DOWN #1: PICK A CONFERENCE*@
+    <div class="form-group">
+        <label class="Field" for="">Conference:</label>
+        <br />
+        <select class="form-control" name="conference" id="conferenceDropdown">
+            <option value=""></option>
+            <option value="American">American</option> @*AAC*@
+            <option value="ACC">ACC</option> @*AAC*@
+            <option value="Big 12">Big 12</option> @*B10*@
+            <option value="Big 10">Big 10</option> @*B1G*@
+            <option value="Conference USA">Conference USA</option> @*CUSA*@
+            <option value="Mid-American">Mid-American</option> @*MAC*@
+            <option value="Mountain West">Mountain West</option> @*MWC*@
+            <option value="Pac-12">Pac-12</option> @*PAC*@
+            <option value="SEC">SEC</option> @*SEC*@
+            <option value="Sun Belt">Sun Belt</option> @*SBC*@
+        </select>
+    </div>
+
+    @*DROP DOWN #2: PICK A SEASON*@
+    <div class="form-group">
+        <label class="Field" for="">Season:</label>
+        <br />
+        <select class="form-control" name="season" id="seasonDropDown">
+            <option value=""></option>
+            <option value="Regular">Regular</option>
+            <option value="Postseason">Postsesaon</option>
+            <option value="Both">Both</option>
+        </select>
+    </div>
+
+    @*DROP DOWN #3: PICK A SIDE OF THE BALL*@
     <div class="form-group">
         <label class="Field" for="">Choose:</label>
         <br />
-        <select class="form-control" name="state" id="sideOfTheBall">
+        <select class="form-control" name="sideOfTheBall" id="sideOfTheBall">
             <option value=""></option>
             <option value="Offense">Offense</option>
             <option value="Defense">Defense</option>
@@ -56,7 +94,7 @@
         </select>
     </div>
     @*---------------------------------------OFFENSE---------------------------------------------*@
-    @*DROP DOWN #2:OFFENSE OPTIONS*@
+    @*DROP DOWN #4:OFFENSE OPTIONS*@
     <div class="form-group" id="offenseOptions" style="display: none;">
         <label class="Field" for="">Offensive Category:</label>
         <br />
@@ -68,7 +106,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: RUSHING OPTIONS*@
+    @*DROP DOWN #5: RUSHING OPTIONS*@
     <div class="form-group" id="rushingOptions" style="display: none;">
         <label class="Field" for="">Rushing Stat:</label>
         <br />
@@ -82,7 +120,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: RECEIVING OPTIONS*@
+    @*DROP DOWN #5: RECEIVING OPTIONS*@
     <div class="form-group" id="receivingOptions" style="display: none;">
         <label class="Field" for="">Receiving Stat:</label>
         <br />
@@ -96,7 +134,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: PASSING OPTIONS*@
+    @*DROP DOWN #5: PASSING OPTIONS*@
     <div class="form-group" id="passingOptions" style="display: none;">
         <label class="Field" for="">Passing Stat:</label>
         <br />
@@ -112,7 +150,7 @@
         </select>
     </div>
     @*---------------------------------------DEFENSE---------------------------------------------*@
-    @*DROP DOWN #2: DEFENSE OPTIONS*@
+    @*DROP DOWN #4: DEFENSE OPTIONS*@
     <div class="form-group" id="defenseOptions" style="display: none;">
         <label class="Field" for="">Defense Category:</label>
         <br />
@@ -122,7 +160,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: DEFENSE OPTIONS*@
+    @*DROP DOWN #5: DEFENSE OPTIONS*@
     <div class="form-group" id="defenseStats" style="display: none;">
         <label class="Field" for="">Defense Stat:</label>
         <br />
@@ -136,7 +174,7 @@
         </select>
     </div>
     @*---------------------------------------SPECIAL TEAMS---------------------------------------------*@
-    @*DROP DOWN #2: SPECIAL TEAMS OPTIONS*@
+    @*DROP DOWN #4: SPECIAL TEAMS OPTIONS*@
     <div class="form-group" id="specialOptions" style="display: none;">
         <label class="Field" for="">Special Teams Category:</label>
         <br />
@@ -149,7 +187,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: KICKING OPTIONS*@
+    @*DROP DOWN #5: KICKING OPTIONS*@
     <div class="form-group" id="kickingOptions" style="display: none;">
         <label class="Field" for="">Kicking Stat:</label>
         <br />
@@ -164,7 +202,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: PUNTING OPTIONS*@
+    @*DROP DOWN #5: PUNTING OPTIONS*@
     <div class="form-group" id="puntingOptions" style="display: none;">
         <label class="Field" for="">Punting Stat:</label>
         <br />
@@ -178,7 +216,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: KICK RETURN OPTIONS*@
+    @*DROP DOWN #5: KICK RETURN OPTIONS*@
     <div class="form-group" id="kickReturnOptions" style="display: none;">
         <label class="Field" for="">Kick Return Stat:</label>
         <br />
@@ -191,7 +229,7 @@
         </select>
     </div>
 
-    @*DROP DOWN #3: PUNT RETURN OPTIONS*@
+    @*DROP DOWN #5: PUNT RETURN OPTIONS*@
     <div class="form-group" id="puntReturnOptions" style="display: none;">
         <label class="Field" for="">Punt Return Stat:</label>
         <br />
