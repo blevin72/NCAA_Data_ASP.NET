@@ -7,7 +7,7 @@ namespace NCAA_Data
     {
         public static async Task<List<PlayerStatistics>> GetPlayerStats(int year, string conference, string season, string statCat)
         {
-            string key = File.ReadAllText("appsettings.json");  //reads the content (our API Key) from the "appsettings.json file; storing into the variable key
+            string key = File.ReadAllText("appsettings_2.json");  //reads the content (our API Key) from the "appsettings_2.json file; storing into the variable key
             string bearerToken = JObject.Parse(key).GetValue("APIKey").ToString();
             double rushingYards = 0;
 
@@ -51,14 +51,10 @@ namespace NCAA_Data
                             playerStatsList.Add(playerStatistics);
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine($"API Request failed with status code: {response.StatusCode}");
-                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error occurred: {ex.Message}");
+                    return null;
                 }
             }
             return playerStatsList;

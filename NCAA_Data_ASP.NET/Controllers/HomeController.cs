@@ -18,7 +18,7 @@ public class HomeController : Controller
 
 
 
-    public IActionResult Privacy() //done
+    public IActionResult Privacy()
     {
         return View();
     }
@@ -29,7 +29,7 @@ public class HomeController : Controller
     //    _configuration = configuration;
     //}
 
-    public IActionResult Index() //done
+    public IActionResult Index()
     {
         string apiKey = _configuration["APIKey"];
 
@@ -37,10 +37,9 @@ public class HomeController : Controller
 
         return View();
     }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error() //done
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
-

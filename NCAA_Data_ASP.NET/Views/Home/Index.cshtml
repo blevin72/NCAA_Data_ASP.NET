@@ -43,7 +43,7 @@
     <p style="color: black">Search for NCAA college football stats from any season dating back to 2005 (exc. 2020)</p>
 </div>
 
-<form>
+<form asp-controller="Player" asp-action="Index" method="post">
     @*@USER INPUT: ENTER YEAR*@
     <div class="form-group">
         <label class="Field" for="">Year:</label>
@@ -306,7 +306,6 @@
             kickReturnOptions.style.display = "none";
             puntReturnOptions.style.display = "none";
 
-            //adjust???????????
             conferenceOptions.style.display = "block"; // Ensure the conferenceOptions is initially displayed
 
             conferenceOptionsDropdown.addEventListener("change", function () {
@@ -323,7 +322,6 @@
                 }
             });
 
-            //adjust????????????
             seasonOptionsDropdown.addEventListener("change", function () {
                 var selectedSeason = seasonOptionsDropdown.value;
 
