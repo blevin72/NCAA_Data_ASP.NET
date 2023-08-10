@@ -2,7 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model NCAA_Data.PlayerStatistics
+@*@model NCAA_Data.PlayerStatistics*@
+@model NCAA_Data.Base
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
@@ -55,7 +56,7 @@
     <div class="form-group" id="conferenceOptions" style="display: none;">
         <label class="Field" for="">Conference:</label>
         <br />
-        <select class="form-control" name="conferenceOptions" id="conferenceOptionsDropdown">
+        <select class="form-control" name="conference" id="conferenceOptionsDropdown">
             <option value=""></option>
             <option value="American">American</option> @*AAC*@
             <option value="ACC">ACC</option> @*AAC*@
@@ -76,8 +77,8 @@
         <br />
         <select class="form-control" name="season" id="seasonOptionsDropdown">
             <option value=""></option>
-            <option value="Regular">Regular</option>
-            <option value="Postseason">Postsesaon</option>
+            <option value="regular">Regular</option>
+            <option value="postseason">Postsesaon</option>
             <option value="Both">Both</option>
         </select>
     </div>
@@ -110,7 +111,7 @@
     <div class="form-group" id="rushingOptions" style="display: none;">
         <label class="Field" for="">Rushing Stat:</label>
         <br />
-        <select class="form-control" name="rushingOption" id="rushingOptionDropdown">
+        <select class="form-control" name="StatCat" id="rushingOptionDropdown">
             <option value=""></option>
             <option value="Yards">Yards</option>
             <option value="Touchdowns">Touchdowns</option>
@@ -124,7 +125,7 @@
     <div class="form-group" id="receivingOptions" style="display: none;">
         <label class="Field" for="">Receiving Stat:</label>
         <br />
-        <select class="form-control" name="receivingOption" id="receivingOptionDropdown">
+        <select class="form-control" name="StatCat" id="receivingOptionDropdown">
             <option value=""></option>
             <option value="Yards">Yards</option>
             <option value="Touchdowns">Touchdowns</option>
@@ -245,7 +246,8 @@
     <script>document.addEventListener("DOMContentLoaded", function () {
             //reference the div id's
             var conferenceOptions = document.getElementById("conferenceOptions");
-            var seasonOptions = document.getElementById("seasonOptions");
+
+    var seasonOptions = document.getElementById("seasonOptions");
             var sideOfTheBallOptions = document.getElementById("sideOfTheBallOptions");
             var offenseOptions = document.getElementById("offenseOptions");
             var rushingOptions = document.getElementById("rushingOptions");
@@ -260,24 +262,26 @@
             var puntReturnOptions = document.getElementById("puntReturnOptions");
 
             //reference the class id's within the div
-            var conferenceOptionsDropdown = conferenceOptions.querySelector("select[name='conferenceOptions']");
-            var seasonOptionsDropdown = seasonOptions.querySelector("select[name='season']");
-            var sideOfTheBallOptionsDropdown = sideOfTheBallOptions.querySelector("select[name='sideOfTheBall']");
-            var offenseDropdown = offenseOptions.querySelector("select[name='offenseOption']");
-            var rushingDropdown = rushingOptions.querySelector("select[name='rushingOption']");
-            var receivingDropdown = receivingOptions.querySelector("select[name='receivingOption']");
-            var passingDropdown = passingOptions.querySelector("select[name='passingOption']");
-            var defenseDropdown = defenseOptions.querySelector("select[name='defenseOption']");
-            var defenseStatsDropdown = defenseStats.querySelector("select[name='defenseStats']");
-            var specialDropdown = specialOptions.querySelector("select[name='specialOption']");
-            var kickingOptionsDropdown = kickingOptions.querySelector("select[name='kickingOptions']");
-            var puntingOptionsDropdown = puntingOptions.querySelector("select[name='puntingOptions']");
-            var kickReturnOptionsDropdown = kickReturnOptions.querySelector("select[name='kickReturnOptions']");
-            var puntReturnOptionsDropdown = puntReturnOptions.querySelector("select[name='puntReturnOptions']");
+            var conferenceOptionsDropdown = conferenceOptions.querySelector("select");
+
+    var seasonOptionsDropdown = seasonOptions.querySelector("select");
+            var sideOfTheBallOptionsDropdown = sideOfTheBallOptions.querySelector("select");
+            var offenseDropdown = offenseOptions.querySelector("select");
+            var rushingDropdown = rushingOptions.querySelector("select");
+            var receivingDropdown = receivingOptions.querySelector("select");
+            var passingDropdown = passingOptions.querySelector("select");
+            var defenseDropdown = defenseOptions.querySelector("select");
+            var defenseStatsDropdown = defenseStats.querySelector("select");
+            var specialDropdown = specialOptions.querySelector("select");
+            var kickingOptionsDropdown = kickingOptions.querySelector("select");
+            var puntingOptionsDropdown = puntingOptions.querySelector("select");
+            var kickReturnOptionsDropdown = kickReturnOptions.querySelector("select");
+            var puntReturnOptionsDropdown = puntReturnOptions.querySelector("select");
 
 
             // Disabling dropdowns
-            seasonOptionsDropdown.setAttribute("disabled", "disabled");
+
+    seasonOptionsDropdown.setAttribute("disabled", "disabled");
             sideOfTheBallOptionsDropdown.setAttribute("disabled", "disabled");
             offenseDropdown.setAttribute("disabled", "disabled");
             rushingDropdown.setAttribute("disabled", "disabled");
@@ -292,7 +296,8 @@
             puntReturnOptionsDropdown.setAttribute("disabled", "disabled");
 
             //Hiding dropdown options
-            seasonOptions.style.display = "none";
+
+    seasonOptions.style.display = "none";
             sideOfTheBallOptions.style.display = "none";
             offenseOptions.style.display = "none";
             rushingOptions.style.display = "none";
