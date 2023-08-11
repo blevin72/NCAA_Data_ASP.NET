@@ -111,13 +111,13 @@
     <div class="form-group" id="rushingOptions" style="display: none;">
         <label class="Field" for="">Rushing Stat:</label>
         <br />
-        <select class="form-control" name="rushingOption" id="rushingOptionDropdown">
+        <select class="form-control" name="StatType" id="rushingOptionDropdown">
             <option value=""></option>
-            <option value="Yards">Yards</option>
-            <option value="Touchdowns">Touchdowns</option>
-            <option value="Carries">Carries</option>
-            <option value="Yards Per Carry">Yards Per Carry</option>
-            <option value="Long">Long</option>
+            <option value="YDS">Yards</option>
+            <option value="TD">Touchdowns</option>
+            <option value="CAR">Carries</option>
+            <option value="YPC">Yards Per Carry</option>
+            <option value="LONG">Long</option>
         </select>
     </div>
 
@@ -125,13 +125,13 @@
     <div class="form-group" id="receivingOptions" style="display: none;">
         <label class="Field" for="">Receiving Stat:</label>
         <br />
-        <select class="form-control" name="receivingOption" id="receivingOptionDropdown">
+        <select class="form-control" name="StatType" id="receivingOptionDropdown">
             <option value=""></option>
-            <option value="Yards">Yards</option>
-            <option value="Touchdowns">Touchdowns</option>
-            <option value="Receptions">Receptions</option>
-            <option value="Yards Per Reception">Yards Per Reception</option>
-            <option value="Long">Long</option>
+            <option value="YDS">Yards</option>
+            <option value="TD">Touchdowns</option>
+            <option value="REC">Receptions</option>
+            <option value="YPR">Yards Per Reception</option>
+            <option value="LONG">Long</option>
         </select>
     </div>
 
@@ -139,15 +139,15 @@
     <div class="form-group" id="passingOptions" style="display: none;">
         <label class="Field" for="">Passing Stat:</label>
         <br />
-        <select class="form-control" name="passingOption" id="passingOptionDropdown">
+        <select class="form-control" name="StatType" id="passingOptionDropdown">
             <option value=""></option>
-            <option value="Yards">Yards</option>
-            <option value="Touchdowns">Touchdowns</option>
-            <option value="Completions">Completions</option>
-            <option value="Attempts">Attempts</option>
-            <option value="Yards Per Attempt">Yards Per Attempt</option>
-            <option value="Interceptions">Interceptions</option>
-            <option value="Completion Percentage">Completion Percentage</option>
+            <option value="YDS">Yards</option>
+            <option value="TD">Touchdowns</option>
+            <option value="COMPLETIONS">Completions</option>
+            <option value="ATT">Attempts</option>
+            <option value="YPA">Yards Per Attempt</option>
+            <option value="INT">Interceptions</option>
+            <option value="PCT">Completion Percentage</option>
         </select>
     </div>
     @*---------------------------------------DEFENSE---------------------------------------------*@
@@ -157,7 +157,7 @@
         <br />
         <select class="form-control" name="StatCat" id="defenseOptionDropdown">
             <option value=""></option>
-            <option value="All Defense">All Defense</option>
+            <option value="Defensive">All Defense</option>
         </select>
     </div>
 
@@ -165,13 +165,13 @@
     <div class="form-group" id="defenseStats" style="display: none;">
         <label class="Field" for="">Defense Stat:</label>
         <br />
-        <select class="form-control" name="defenseStats" id="defenseStatsDropdown">
+        <select class="form-control" name="StatType" id="defenseStatsDropdown">
             <option value=""></option>
-            <option value="Sacks">Sacks</option>
-            <option value="Pass Deflections">Pass Deflections</option>
-            <option value="Tackle for Loss">Tackle for Loss</option>
-            <option value="Total Tackles">Total Tackles</option>
-            <option value="Solo Tackles">Solo Tackles</option>
+            <option value="SACKS">Sacks</option>
+            <option value="PD">Pass Deflections</option>
+            <option value="TFL">Tackle for Loss</option>
+            <option value="TOT">Total Tackles</option>
+            <option value="SOLO">Solo Tackles</option>
         </select>
     </div>
     @*---------------------------------------SPECIAL TEAMS---------------------------------------------*@
@@ -192,14 +192,14 @@
     <div class="form-group" id="kickingOptions" style="display: none;">
         <label class="Field" for="">Kicking Stat:</label>
         <br />
-        <select class="form-control" name="kickingOptions" id="kickingOptionsDropdown">
+        <select class="form-control" name="StatType" id="kickingOptionsDropdown">
             <option value=""></option>
-            <option value="Field Goals Made">Field Goal Made</option>
-            <option value="Field Goals Attempted">Field Goals Attempted</option>
-            <option value="Extra Points Made">Extra Points Made</option>
-            <option value="Extra Points Attempted">Extra Points Attempted</option>
-            <option value="Field Goal Percentage">Field Goal Percentage</option>
-            <option value="Total Points">Total Points</option>
+            <option value="FGM">Field Goal Made</option>
+            <option value="FGA">Field Goals Attempted</option>
+            <option value="XPM">Extra Points Made</option>
+            <option value="XPA">Extra Points Attempted</option>
+            <option value="PCT">Field Goal Percentage</option>
+            <option value="PTS">Total Points</option>
         </select>
     </div>
 
@@ -207,13 +207,13 @@
     <div class="form-group" id="puntingOptions" style="display: none;">
         <label class="Field" for="">Punting Stat:</label>
         <br />
-        <select class="form-control" name="puntingOptions" id="puntingOptionsDropdown">
+        <select class="form-control" name="StatType" id="puntingOptionsDropdown">
             <option value=""></option>
-            <option value="Longest">Longest</option>
-            <option value="Inside the 20">Inside the 20</option>
-            <option value="Total Yards">Total Yards</option>
-            <option value="Yards Per Punt">Yards Per Punt</option>
-            <option value="No Return">No Return</option>
+            <option value="LONG">Longest</option>
+            <option value="In 20">Inside the 20</option>
+            <option value="YDS">Total Yards</option>
+            <option value="YPP">Yards Per Punt</option>
+            <option value="NO">No Return</option>
         </select>
     </div>
 
@@ -221,12 +221,12 @@
     <div class="form-group" id="kickReturnOptions" style="display: none;">
         <label class="Field" for="">Kick Return Stat:</label>
         <br />
-        <select class="form-control" name="kickReturnOptions" id="kickReturnOptionsDropdown">
+        <select class="form-control" name="StatType" id="kickReturnOptionsDropdown">
             <option value=""></option>
-            <option value="Longest">Longest</option>
-            <option value="Touchdowns">Touchdowns</option>
-            <option value="Total Yards">Total Yards</option>
-            <option value="No Return">No Return</option>
+            <option value="LONG">Longest</option>
+            <option value="TD">Touchdowns</option>
+            <option value="YDS">Total Yards</option>
+            <option value="NO">No Return</option>
         </select>
     </div>
 
@@ -234,12 +234,12 @@
     <div class="form-group" id="puntReturnOptions" style="display: none;">
         <label class="Field" for="">Punt Return Stat:</label>
         <br />
-        <select class="form-control" name="puntReturnOptions" id="puntReturnOptionsDropdown">
+        <select class="form-control" name="StatType" id="puntReturnOptionsDropdown">
             <option value=""></option>
-            <option value="Longest">Longest</option>
-            <option value="Touchdowns">Touchdowns</option>
-            <option value="Total Yards">Total Yards</option>
-            <option value="No Return">No Return</option>
+            <option value="LONG">Longest</option>
+            <option value="TD">Touchdowns</option>
+            <option value="YDS">Total Yards</option>
+            <option value="NO">No Return</option>
         </select>
     </div>
 
@@ -466,7 +466,7 @@
             defenseDropdown.addEventListener("change", function () {
                 var selectedValue = defenseDropdown.value;
 
-                if (selectedValue === "All Defense") {
+                if (selectedValue === "Defensive") {
                     defenseStatsDropdown.removeAttribute("disabled");
                     defenseStats.style.display = "block";
 

@@ -14,8 +14,8 @@ namespace NCAA_Data_ASP.NET.Controllers
         {
             //PlayerStatistics playerStatistics = new PlayerStatistics();
             var apiCall = await PlayerStats.GetPlayerStats(someBase.Year, someBase.Conference, someBase.Season, someBase.StatCat);
-
-            return View(apiCall);
+            var final = apiCall.Where(x=>x.StatType.Contains(someBase.StatType)).ToList();
+            return View(final);
         }
     }
 }

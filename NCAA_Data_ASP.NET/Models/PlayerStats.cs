@@ -9,7 +9,6 @@ namespace NCAA_Data
         {
             string key = File.ReadAllText("appsettings_2.json");  //reads the content (our API Key) from the "appsettings_2.json file; storing into the variable key
             string bearerToken = JObject.Parse(key).GetValue("APIKey").ToString();
-            //double rushingYards = 0;
             
             string footballEndpoint = $"https://api.collegefootballdata.com/stats/player/season?year={year}&conference={conference}&seasonType={season}&category={statCat}";
             //Create a list to store player tatistics
