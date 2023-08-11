@@ -14,7 +14,7 @@
             }
 
         body {
-            background-image: @*need background image *@
+            background-image: url('grass.jpg');
             background-repeat: no-repeat;
             @*background-color: lightblue;*@
             background-size: cover;
@@ -99,7 +99,7 @@
     <div class="form-group" id="offenseOptions" style="display: none;">
         <label class="Field" for="">Offensive Category:</label>
         <br />
-        <select class="form-control" name="offenseOption" id="offenseOptionDropdown">
+        <select class="form-control" name="StatCat" id="offenseOptionDropdown">
             <option value=""></option>
             <option value="Rushing">Rushing</option>
             <option value="Receiving">Receiving</option>
@@ -111,7 +111,7 @@
     <div class="form-group" id="rushingOptions" style="display: none;">
         <label class="Field" for="">Rushing Stat:</label>
         <br />
-        <select class="form-control" name="StatCat" id="rushingOptionDropdown">
+        <select class="form-control" name="rushingOption" id="rushingOptionDropdown">
             <option value=""></option>
             <option value="Yards">Yards</option>
             <option value="Touchdowns">Touchdowns</option>
@@ -125,7 +125,7 @@
     <div class="form-group" id="receivingOptions" style="display: none;">
         <label class="Field" for="">Receiving Stat:</label>
         <br />
-        <select class="form-control" name="StatCat" id="receivingOptionDropdown">
+        <select class="form-control" name="receivingOption" id="receivingOptionDropdown">
             <option value=""></option>
             <option value="Yards">Yards</option>
             <option value="Touchdowns">Touchdowns</option>
@@ -155,7 +155,7 @@
     <div class="form-group" id="defenseOptions" style="display: none;">
         <label class="Field" for="">Defense Category:</label>
         <br />
-        <select class="form-control" name="defenseOption" id="defenseOptionDropdown">
+        <select class="form-control" name="StatCat" id="defenseOptionDropdown">
             <option value=""></option>
             <option value="All Defense">All Defense</option>
         </select>
@@ -179,7 +179,7 @@
     <div class="form-group" id="specialOptions" style="display: none;">
         <label class="Field" for="">Special Teams Category:</label>
         <br />
-        <select class="form-control" name="specialOption" id="specialOptionDropdown">
+        <select class="form-control" name="StatCat" id="specialOptionDropdown">
             <option value=""></option>
             <option value="Kicking">Kicking</option>
             <option value="Punting">Punting</option>

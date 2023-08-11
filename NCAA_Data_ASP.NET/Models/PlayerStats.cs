@@ -29,28 +29,33 @@ namespace NCAA_Data
                     // Check if the response is successful
                     if (response.IsSuccessStatusCode)
                     {
-                        // Read the response content as a string
-                        string responseBody = await response.Content.ReadAsStringAsync();
-                        JArray responseArray = JArray.Parse(responseBody);
-
-                        foreach (JObject playerStats in responseArray)
+                        if(response.Content.Headers.ContentLength != 0 || response.Content.Headers.ContentLength != null)
                         {
-                            // Create a new PlayerStatistics object and fill its properties with data from the JSON.
-                            PlayerStatistics playerStatistics = new PlayerStatistics
+                            // Read the response content as a string
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            JArray responseArray = JArray.Parse(responseBody);
+
+                            foreach (JObject playerStats in responseArray)
                             {
-                                PlayerId = (string)playerStats["playerId"],
-                                PlayerName = (string)playerStats["player"],
-                                Team = (string)playerStats["team"],
-                                Conference = (string)playerStats["conference"],
-                                Category = (string)playerStats["category"],
-                                StatType = (string)playerStats["statType"],
-                                Stat = (string)playerStats["stat"]
-                            };
-                            // Add the player statistics to the list.
-                            playerStatsList.Add(playerStatistics);
+                                // Create a new PlayerStatistics object and fill its properties with data from the JSON.
+                                PlayerStatistics playerStatistics = new PlayerStatistics
+                                {
+                                    PlayerId = (string)playerStats["playerId"],
+                                    PlayerName = (string)playerStats["player"],
+                                    Team = (string)playerStats["team"],
+                                    Conference = (string)playerStats["conference"],
+                                    Category = (string)playerStats["category"],
+                                    StatType = (string)playerStats["statType"],
+                                    Stat = (string)playerStats["stat"],
+                                    Year = (string)playerStats["year"]
+                                };
+                                // Add the player statistics to the list.
+                                playerStatsList.Add(playerStatistics);
+                            }
                         }
                     }
                 }
+                        
                 catch (Exception ex)
                 {
                     return null;

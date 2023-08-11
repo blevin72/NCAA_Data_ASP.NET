@@ -18,9 +18,9 @@
             }
 
         body {
-            background-image: @*need background image *@
+            @*background-image: url('grass.jpg');*@
             background-repeat: no-repeat;
-            @*background-color: lightblue;*@
+            background-color: Window;
             background-size: cover;
             height: 100%;
             padding-top: 60px;
@@ -45,6 +45,14 @@
 
 @foreach (var item in Model)
 {
-    <h1> Conference: @item.Conference </h1>
-    <h1> Year: @item.PlayerName</h1>
+     <h1>
+         Player: @item.PlayerName
+     </h1>
+    <h2> Conference: @item.Conference </h2>
+    <h2> Category: @item.Category</h2>
+    <h2> Stat: @item.Stat.</h2>
+    <h2> ---------------------------------</h2>
+
+
+
 }
