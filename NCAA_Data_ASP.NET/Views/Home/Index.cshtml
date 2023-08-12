@@ -2,7 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@*@model NCAA_Data.PlayerStatistics*@
 @model NCAA_Data.Base
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
@@ -16,7 +15,6 @@
         body {
             background-image: url('grass.jpg');
             background-repeat: no-repeat;
-            @*background-color: lightblue;*@
             background-size: cover;
             height: 100%;
             padding-top: 60px;
@@ -60,7 +58,7 @@
             <option value=""></option>
             <option value="AAC">American</option> @*AAC*@
             <option value="ACC">ACC</option> @*ACC*@
-            <option value="B12">Big 12</option> @*B10*@
+            <option value="B12">Big 12</option> @*B12*@
             <option value="B1G">Big 10</option> @*B1G*@
             <option value="CUSA">Conference USA</option> @*CUSA*@
             <option value="MAC">Mid-American</option> @*MAC*@
@@ -251,7 +249,7 @@
             //reference the div id's
             var conferenceOptions = document.getElementById("conferenceOptions");
 
-    var seasonOptions = document.getElementById("seasonOptions");
+            var seasonOptions = document.getElementById("seasonOptions");
             var sideOfTheBallOptions = document.getElementById("sideOfTheBallOptions");
             var offenseOptions = document.getElementById("offenseOptions");
             var rushingOptions = document.getElementById("rushingOptions");
@@ -268,7 +266,7 @@
             //reference the class id's within the div
             var conferenceOptionsDropdown = conferenceOptions.querySelector("select");
 
-    var seasonOptionsDropdown = seasonOptions.querySelector("select");
+            var seasonOptionsDropdown = seasonOptions.querySelector("select");
             var sideOfTheBallOptionsDropdown = sideOfTheBallOptions.querySelector("select");
             var offenseDropdown = offenseOptions.querySelector("select");
             var rushingDropdown = rushingOptions.querySelector("select");
@@ -285,7 +283,7 @@
 
             // Disabling dropdowns
 
-    seasonOptionsDropdown.setAttribute("disabled", "disabled");
+            seasonOptionsDropdown.setAttribute("disabled", "disabled");
             sideOfTheBallOptionsDropdown.setAttribute("disabled", "disabled");
             offenseDropdown.setAttribute("disabled", "disabled");
             rushingDropdown.setAttribute("disabled", "disabled");
@@ -301,7 +299,7 @@
 
             //Hiding dropdown options
 
-    seasonOptions.style.display = "none";
+            seasonOptions.style.display = "none";
             sideOfTheBallOptions.style.display = "none";
             offenseOptions.style.display = "none";
             rushingOptions.style.display = "none";

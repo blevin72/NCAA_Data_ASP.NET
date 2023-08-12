@@ -22,7 +22,7 @@ namespace NCAA_Data
                     // Set the Bearer token in the Authorization header
                     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
 
-                    // Make the API call (GET request in this example)
+                    // Make the API call
                     HttpResponseMessage response = await httpClient.GetAsync(footballEndpoint);
 
                     // Check if the response is successful

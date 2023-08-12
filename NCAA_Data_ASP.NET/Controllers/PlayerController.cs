@@ -12,7 +12,6 @@ namespace NCAA_Data_ASP.NET.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index(Base someBase)
         {
-            //PlayerStatistics playerStatistics = new PlayerStatistics();
             var apiCall = await PlayerStats.GetPlayerStats(someBase.Year, someBase.Conference, someBase.Season, someBase.StatCat);
             var final = apiCall.Where(x=>x.StatType.Contains(someBase.StatType)).ToList();
             return View(final);

@@ -1,5 +1,4 @@
-﻿using System;
-namespace NCAA_Data
+﻿namespace NCAA_Data
 {
     public class Base
     {
@@ -7,8 +6,6 @@ namespace NCAA_Data
         public int Year { get; set; }
         public string Conference { get; set; }
         public string Season { get; set; }
-
         public string StatType { get; set; }
-        
     }
 }
