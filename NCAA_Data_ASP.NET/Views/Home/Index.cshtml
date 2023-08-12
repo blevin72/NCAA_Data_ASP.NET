@@ -58,16 +58,16 @@
         <br />
         <select class="form-control" name="conference" id="conferenceOptionsDropdown">
             <option value=""></option>
-            <option value="American">American</option> @*AAC*@
-            <option value="ACC">ACC</option> @*AAC*@
-            <option value="Big 12">Big 12</option> @*B10*@
-            <option value="Big 10">Big 10</option> @*B1G*@
-            <option value="Conference USA">Conference USA</option> @*CUSA*@
-            <option value="Mid-American">Mid-American</option> @*MAC*@
-            <option value="Mountain West">Mountain West</option> @*MWC*@
-            <option value="Pac-12">Pac-12</option> @*PAC*@
+            <option value="AAC">American</option> @*AAC*@
+            <option value="ACC">ACC</option> @*ACC*@
+            <option value="B12">Big 12</option> @*B10*@
+            <option value="B1G">Big 10</option> @*B1G*@
+            <option value="CUSA">Conference USA</option> @*CUSA*@
+            <option value="MAC">Mid-American</option> @*MAC*@
+            <option value="MWC">Mountain West</option> @*MWC*@
+            <option value="PAC">Pac-12</option> @*PAC*@
             <option value="SEC">SEC</option> @*SEC*@
-            <option value="Sun Belt">Sun Belt</option> @*SBC*@
+            <option value="SBC">Sun Belt</option> @*SBC*@
         </select>
     </div>
 
@@ -172,6 +172,7 @@
             <option value="TFL">Tackle for Loss</option>
             <option value="TOT">Total Tackles</option>
             <option value="SOLO">Solo Tackles</option>
+            <option value="TD">Touchdowns</option>
         </select>
     </div>
     @*---------------------------------------SPECIAL TEAMS---------------------------------------------*@
@@ -183,8 +184,8 @@
             <option value=""></option>
             <option value="Kicking">Kicking</option>
             <option value="Punting">Punting</option>
-            <option value="Kick Returns">Kick Returns</option>
-            <option value="Punt Returns">Punt Returns</option>
+            <option value="kickReturns">Kick Returns</option>
+            <option value="puntReturns">Punt Returns</option>
         </select>
     </div>
 
@@ -200,6 +201,7 @@
             <option value="XPA">Extra Points Attempted</option>
             <option value="PCT">Field Goal Percentage</option>
             <option value="PTS">Total Points</option>
+            <option value="LONG">Longest Field Goal</option>
         </select>
     </div>
 
@@ -227,6 +229,7 @@
             <option value="TD">Touchdowns</option>
             <option value="YDS">Total Yards</option>
             <option value="NO">No Return</option>
+            <option value="AVG">Average Kick Return</option>
         </select>
     </div>
 
@@ -240,6 +243,7 @@
             <option value="TD">Touchdowns</option>
             <option value="YDS">Total Yards</option>
             <option value="NO">No Return</option>
+            <option value="AVG">Average Punt Return</option>
         </select>
     </div>
 
@@ -505,7 +509,7 @@
                     kickingOptions.style.display = "none";
                     kickReturnOptions.style.display = "none";
                     puntReturnOptions.style.display = "none";
-                } else if (selectedValue === "Kick Returns") {
+                } else if (selectedValue === "kickReturns") {
                     kickReturnOptionsDropdown.removeAttribute("disabled");
                     kickReturnOptions.style.display = "block";
 
@@ -513,7 +517,7 @@
                     kickingOptions.style.display = "none";
                     puntingOptions.style.display = "none";
                     puntReturnOptions.style.display = "none";
-                } else if (selectedValue === "Punt Returns") {
+                } else if (selectedValue === "puntReturns") {
                     puntReturnOptionsDropdown.removeAttribute("disabled");
                     puntReturnOptions.style.display = "block";
 
